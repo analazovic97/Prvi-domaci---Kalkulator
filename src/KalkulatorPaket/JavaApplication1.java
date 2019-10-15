@@ -3,6 +3,8 @@ package KalkulatorPaket;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class JavaApplication1 {
 
@@ -78,6 +80,48 @@ public class JavaApplication1 {
         c.gridx=2;
         c.gridy=3;
         p.add(b2,c);
+        
+        b1.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent event) {
+                int br1,br2,rezultat;
+                
+                try{
+                
+                    br1=Integer.parseInt(tx1.getText());
+                    br2=Integer.parseInt(tx2.getText());
+                    
+                    rezultat=br1+br2;
+                    
+                    tx3.setText(Integer.toString(rezultat));
+                }catch(Exception e){
+                JOptionPane.showMessageDialog(null,"Neispravan unos! Pokusajte ponovo.");
+                }
+                
+            }
+        });
+        
+         b2.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent event) {
+                int br1,br2,rezultat;
+                
+                try{
+                
+                    br1=Integer.parseInt(tx1.getText());
+                    br2=Integer.parseInt(tx2.getText());
+                    
+                    rezultat=br1-br2;
+                    
+                    tx3.setText(Integer.toString(rezultat));
+                }catch(Exception e){
+                JOptionPane.showMessageDialog(null,"Neispravan unos! Pokusajte ponovo.");
+                }
+                
+            }
+        });
         
        f.add(p);
        f.setVisible(true);
